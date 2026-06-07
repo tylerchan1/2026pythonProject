@@ -1,5 +1,4 @@
 import requests
-import random
 
 api = "Z5dLEnB4-gc3a-3l1i-nfEG-lCpwtN4d"
 url = "https://kli.korean.go.kr/term/api/search.do"
