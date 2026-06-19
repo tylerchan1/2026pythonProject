@@ -16,33 +16,59 @@ class QuizManager:
     def __init__(self):
         self.category = "일반어"
         self.word_list = QUIZ_BANK[self.category]
+
+        self.total_count = 5
+        self.current_count = 0
+        self.score = 0
+
         self.current_quiz = None
         self.answer = ""
         self.definition = ""
 
-    # 카테고리 설정
-    def set_category(self, category):
+    def start_quiz(self, category, total_count):
         self.category = category
         self.word_list = QUIZ_BANK[category]
 
-    # 새 문제 만들기
-    def make_quiz(self):
-        self.current_quiz = random.choice(self.word_list)
+        self.total_count = total_count
+        self.current_count = 0
+        self.score = 0
 
+        self.current_quiz = None
+        self.answer = ""
+        self.definition = ""
+
+    def make_quiz(self):
+        if self.current_count >= self.total_count:
+            return None
+
+        self.current_quiz = random.choice(self.word_list)
         self.answer = self.current_quiz["word"]
         self.definition = self.current_quiz["definition"]
 
+        self.current_count += 1
+
         return self.definition
 
-    # 정답 확인
     def check_answer(self, user_answer):
         user_answer = user_answer.strip()
 
         if user_answer == self.answer:
+            self.score += 1
             return True
         else:
             return False
 
-    # 정답 반환
     def get_answer(self):
         return self.answer
+
+    def get_current_count(self):
+        return self.current_count
+
+    def get_total_count(self):
+        return self.total_count
+
+    def get_score(self):
+        return self.score
+
+    def is_finished(self):
+        return self.current_count >= self.total_count

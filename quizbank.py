@@ -21,6 +21,7 @@ animal_word_list = make_word_list(ANIMAL_KEYWORDS)
 
 
 # test용
+"""
 print("=== 일반어 ===")
 for wordset in general_word_list:
     print(wordset["word"], ":", wordset["definition"])
@@ -32,3 +33,4 @@ for wordset in education_word_list:
 print("\n=== 동물 ===")
 for wordset in animal_word_list:
     print(wordset["word"], ":", wordset["definition"])
+"""
