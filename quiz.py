@@ -3,10 +3,7 @@ import api
 
 
 def play_quiz():
-    if not api.quiz_bank:
-        print("퀴즈를 낼 단어가 없습니다! 먼저 단어를 입력해 주세요.")
-        return
-
+    
     target_data = random.choice(api.quiz_bank)
     correct_word = target_data["word"]
     quiz_mean = random.choice(target_data["means"])
