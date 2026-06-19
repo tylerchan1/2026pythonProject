@@ -206,7 +206,7 @@ question_count_label.pack(side="left", padx=30)
 
 score_label = tk.Label(
     top_info_frame,
-    text="점수: 0",
+    text="맞힌 문제: 0",
     font=("맑은 고딕", 13)
 )
 score_label.pack(side="left", padx=30)
