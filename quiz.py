@@ -1,18 +1,18 @@
 import random
-import main
+import api
 
 
 def play_quiz():
-    if not main.quiz_bank:
+    if not api.quiz_bank:
         print("퀴즈를 낼 단어가 없습니다! 먼저 단어를 입력해 주세요.")
         return
 
-    target_data = random.choice(main.quiz_bank)
+    target_data = random.choice(api.quiz_bank)
     correct_word = target_data["word"]
     quiz_mean = random.choice(target_data["means"])
 
     print("\n" + "=" * 40)
-    print(f" [ 퀴즈 - 총 {len(main.quiz_bank)}개 단어 중 출제 ]")
+    print(f" [ 퀴즈 - 총 {len(api.quiz_bank)}개 단어 중 출제 ]")
     print(f"문제(뜻): {quiz_mean}")
     print("=" * 40)
 
