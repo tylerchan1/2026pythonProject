@@ -28,6 +28,36 @@ def get_wordSet(keyword):
 
     return make_wordset(item)
 
+def get_wordSet_candidates(keyword):
+    params = {
+        "key": API_KEY,
+        "q": keyword,
+        "req_type": "json",
+        "start": "1",
+        "num": "10",
+        "part": "word",
+        "sort": "dict",
+        "advanced": "y",
+        "target": "1",
+        "method": "start",
+        "type1": "word"
+    }
+
+    response = requests.get(API_URL, params=params)
+    data = response.json()
+
+    items = data["channel"]["item"]
+
+    candidates = []
+
+    for item in items:
+        wordset = make_wordset(item)
+        candidates.append(wordset["word"])
+
+        if len(candidates) >= 3:
+            break
+
+    return candidates
 
 #테스트용
 #wordset = get_wordSet(input("검색: "))

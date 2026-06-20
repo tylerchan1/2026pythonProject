@@ -72,3 +72,18 @@ class QuizManager:
 
     def is_finished(self):
         return self.current_count >= self.total_count
+    def get_candidates(self, user_input):
+        user_input = user_input.strip()
+
+        if user_input == "":
+            return []
+
+        candidates = []
+
+        for wordset in self.word_list:
+            word = wordset["word"]
+
+        if word.startswith(user_input):
+            candidates.append(word)
+
+        return candidates[:3]
